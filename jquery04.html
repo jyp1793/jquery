@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    
+    <h3>innerTHML을 제이쿼리 html()</h3>
+
+    <div class="test"></div>
+
+    <div class="test-html"></div>
+
+    <script>
+        //JS
+        //document.querySelector(".test").innerHTML = "<a href='#'>kkk</a>";
+
+        //jquery
+        $(".test").html("<a href='#'>kkk</a>"); //제이쿼리 innerHTML
+        $(".test").html("");
+        $(".test").html("홍길동");
+
+        //값 얻기
+        var a = $(".test").html();
+        console.log(a);
+
+        //순수문자열의 형태로 삽입하기 text()
+        $(".test-html").text("<a href='#'>kkk</a>");
+    </script>
+</body>
+</html>

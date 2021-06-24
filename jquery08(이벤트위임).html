@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    
+    <h3>li에 태그에 동일한 이벤트를 등록하자</h3>
+
+    <ul id="test">
+        <li>태그1</li>
+        <li>태그2</li>
+        <li>태그3</li>
+    </ul>
+
+    <script>
+
+        //1st
+        // var tag = document.querySelectorAll("#test li");
+        // for(var i = 0; i < tag.length; i++) {
+        //     tag[i].onclick = function() {
+        //         alert(1);
+        //     }
+        // }
+
+        //1st - jquery
+        // $("#test li").click(function() {
+        //     console.log($(this).html() )
+        // })
+
+        //2nd - 이벤트 위임방식
+        // var test = document.getElementById("test");
+        // test.onclick = function() {
+        //     if(event.target.tagName != "LI") return;
+
+        //     console.log(1);
+        // }
+
+        //2nd - jquery
+        $("#test").on("click", "li", function() {
+            console.log( $(this).html() );
+        });
+    </script>
+
+    <div id="box">
+        <!--비워둠-->
+    </div>
+
+    <script>
+        $(document).ready(function() {
+
+            //on방식이 아닌 일반이벤트 등록방법
+            // $("#box a").click(function() {
+            //     event.preventDefault;
+            //     alert("실행됨???");
+            // });
+
+            $("#box").on("click", "a", function() {
+                event.preventDefault();
+                alert("실행됨???");
+            })
+
+
+            var str = "";
+            str += '<a href="#">태그1</a>';
+            str += '<a href="#">태그2</a>';
+            str += '<a href="#">태그3</a>';
+
+            $("#box").html(str);
+        });
+    </script>
+</body>
+</html>

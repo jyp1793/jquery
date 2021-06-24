@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+
+</head>
+<body>
+    
+    <h3>window.onload vs document.ready</h3>
+
+
+    <script>
+        //window.onloadsms 1번만 사용이 가능하다.
+        // window.onload = function() {
+        //    document.getElementById("btn").onclick = function() {}
+        //    alert("실행됨")
+        // }
+
+        //도큐먼트 ready()는 여러개 사용이 가능합니다.
+        $(document).ready(function() {
+
+            document.getElementById("btn").onclick = function() {
+                alert("실행됨")
+            }
+
+            alert("1");
+        });
+
+        $(document).ready(function() {
+            console.log(1);
+
+            alert("2");
+        })
+    </script>
+
+    <button type="button" id="btn">이벤트버튼</button>
+</body>
+</html>
